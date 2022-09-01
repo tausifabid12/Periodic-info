@@ -4,6 +4,7 @@
 }
 .top-container{
     width: 100%;
+    min-height: 200px;
     height: 22vh;
 }
 .max{
@@ -25,10 +26,12 @@
     border: 5px solid goldenrod;
 }
 #formalInfo{
+    min-height: 200px;
      height: 30vh;
 }
 #restInfo{
     height: 40vh;
+    min-height: 250px;
 }
 
 .btn-color{

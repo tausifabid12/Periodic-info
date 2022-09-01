@@ -14,12 +14,12 @@ const displayElement = (data) =>{
         const div = document.createElement('div');
         div.classList.add('mx-2');
         div.innerHTML = `
-        <button class="btn-color d-block mx-auto element-btn pb-3" onclick="getElementInfo('${element.atomicNumber}')">${element.symbol}</button>
+        <button class="btn-color d-block mx-auto element-btn mb-3 shadow-lg " onclick="getElementInfo('${element.atomicNumber}')">${element.symbol}</button>
         `;
         elementContainer.appendChild(div);
     });
 }
-
+loadElement('');
 // looooooding data of the clicked element
 const getElementInfo = (aNumber) => {
     const url = `https://periodic-table-elements-info.herokuapp.com/element/atomicNumber/${aNumber}`
@@ -68,12 +68,25 @@ const displayInfo = data =>{
 //     console.log('xlfd')
 // }
 
+
 //creating search function
  const search = () =>{
-    const searchfield = getElementId('search')
+    const searchfield = getElementId('search');
     const searchValue = searchfield.value;
     loadElement(searchValue);
-
+    const elementContainer = getElementId('elmentCantainer');
+    elementContainer.innerHTML= ``;
+    let url = `https://periodic-table-elements-info.herokuapp.com/element/atomicName/${searchValue}`;
+    // if(searchValue.length <= 2){
+    //     url = `https://periodic-table-elements-info.herokuapp.com/element/symbol/${searchValue}`;
+    //     console.log(url)
+    // }
+    // else{
+    //     url =  `https://periodic-table-elements-info.herokuapp.com/element/atomicName/${searchValue}`;
+    //     console.log(url);
+    // }
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayElement(data));
+     
  }
-
-loadElement('');
