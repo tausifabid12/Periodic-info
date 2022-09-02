@@ -43,7 +43,7 @@ const displayInfo = data =>{
     console.log(data.cpkHexColor)
     const symbol = getElementId('symbol');
     symbol.setAttribute('style', `background-color: #${data.cpkHexColor};`)
-    symbol.innerHTML= `<h2>${data.symbol} </h2>`;
+    symbol.innerHTML= `<h2 class= "fw-bold">${data.symbol} </h2>`;
 
     const formalInfoContainer = getElementId('fInfoContainer');
     formalInfoContainer.innerHTML = 
