@@ -15,7 +15,7 @@ const displayElement = (data) =>{
         const div = document.createElement('div');
         div.classList.add('mx-2');
         div.innerHTML = `
-        <button class="btn-color fw-bold d-block mx-auto element-btn mb-3 shadow-lg " onclick="getElementInfo('${element.atomicNumber}')">${element.symbol}</button>
+        <button class="btn-color fw-bold d-block mx-auto element-btn mb-3 " onclick="getElementInfo('${element.atomicNumber}')">${element.symbol}</button>
         `;
         elementContainer.appendChild(div);
     });
