@@ -10,18 +10,29 @@ const loadElement = async(search) =>{
 
 const displayElement = (data) =>{
     const elementContainer = getElementId('elmentCantainer');
+    const spinnerTop = getElementId('spinnerTop');
     data.forEach(element => {
         const div = document.createElement('div');
         div.classList.add('mx-2');
         div.innerHTML = `
-        <button class="btn-color d-block mx-auto element-btn mb-3 shadow-lg " onclick="getElementInfo('${element.atomicNumber}')">${element.symbol}</button>
+        <button class="btn-color fw-bold d-block mx-auto element-btn mb-3 shadow-lg " onclick="getElementInfo('${element.atomicNumber}')">${element.symbol}</button>
         `;
         elementContainer.appendChild(div);
     });
+    spinnerTop.classList.add('d-none');
 }
-loadElement('');
+
 // looooooding data of the clicked element
 const getElementInfo = (aNumber) => {
+    const howToUse = getElementId('howToUse');
+    howToUse.classList.add('d-none');
+    const spinnerMid = getElementId('spinnerMid');
+    spinnerMid.classList.remove('d-none');
+    const symbolContainer = getElementId('symbolContainer');
+    symbolContainer.classList.add('d-none');
+    const fInfoContainer = getElementId('fInfoContainer');
+    fInfoContainer.classList.add('d-none');
+
     const url = `https://periodic-table-elements-info.herokuapp.com/element/atomicNumber/${aNumber}`
     fetch(url)
     .then(res => res.json())
@@ -59,8 +70,13 @@ const displayInfo = data =>{
         <h6>Year Discovered: ${data.yearDiscovered}</h6>
     </div>
     `;
-
-    return data;
+    const symbolContainer = getElementId('symbolContainer');
+    symbolContainer.classList.remove('d-none');
+    const fInfoContainer = getElementId('fInfoContainer');
+    fInfoContainer.classList.remove('d-none');
+    const spinnerMid = getElementId('spinnerMid');
+    spinnerMid.classList.add('d-none')
+     
 }
 
 // const showRestInfo = () =>{
@@ -90,3 +106,4 @@ const displayInfo = data =>{
     .then(data => displayElement(data));
      
  }
+ loadElement('');

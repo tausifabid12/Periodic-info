@@ -48,13 +48,19 @@
         <!-- top element select & search section start  -->
 
         <div class="container top-container d-flex flex-column justify-content-center align-items-center">
+
             <div class="d-flex w-100 justify-content-center">
                 <input type="text" class="mb-3 w-75 rounded me-4" id="search">
                 <button class="btn-color px-4 py-1 search-btn" onclick="search()">search</button>
             </div>
             <div class="mother-container">
-                <div class=" d-flex" id="elmentCantainer">
-
+                    <!-- spinner start -->
+                    <div class="spinner-border color spinnerPos" id="spinnerTop" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <!-- spinner end -->
+                <div class=" d-flex  " id="elmentCantainer">
+                
                 </div>
             </div>
         </div>
@@ -63,12 +69,21 @@
 
         <!-- display element info section  -->
         <section class="d-flex max shadow rounded" id="formalInfo">
-
-            <div class="w-50 h-100  d-flex align-items-center justify-content-center" id="symbolContainer">
+            <!-- this will show if no element is clicked -->
+            <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center" id="howToUse">
+                <h2 class="text-center color">Click on the Element for details </h2>
+            </div>
+            <!-- this div will show if element in clicked  -->
+            <div class=" d-none w-50 h-100  d-flex align-items-center justify-content-center" id="symbolContainer">
                 <div class="w-75 h-75 text-dark fw-bold d-flex align-items-center justify-content-center shadow-lg rounded-circle"
                     id="symbol"></div>
             </div>
-            <div class=" ps-3 w-50 h-100 d-flex justify-content-center flex-column" id="fInfoContainer">
+            <!-- spinner mid start  -->
+            <div class="spinner-border color spinnerPos mt-5 d-none" id="spinnerMid" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <!-- spinner mid end -->
+            <div class=" d-none ps-3 w-50 h-100 d-flex justify-content-center flex-column" id="fInfoContainer">
 
                 <!-- <p>standardState</p> -->
             </div>
@@ -79,9 +94,9 @@
 
 
         </section>
-         <!-- config section end -->
+        <!-- config section end -->
 
-         <!-- <section id="selectQuery">
+        <!-- <section id="selectQuery">
             <div class="d-flex pt-4 justify-content-center">
                 <input list="restOptions" class="me-4 rounded" id="restInfoField" placeholder="Select your query" />
                 <button class="btn-color" onclick="showRestInfo()">Submit</button>

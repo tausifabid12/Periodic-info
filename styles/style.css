@@ -44,3 +44,10 @@
 .nav-color{
     background-image: linear-gradient(to bottom, #712cf9, #4c0bce);
 }
+.color{
+    color:  #4c0bce;
+}
+
+.spinnerPos{
+    margin-left: 48%;
+}
